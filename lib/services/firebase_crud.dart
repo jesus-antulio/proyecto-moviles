@@ -6,7 +6,6 @@ final CollectionReference _Collection = _firestore.collection('Task');
 
 class FirebaseCrud {
   static Future<Response> addTask({
-    required bool done,
     required String title,
     required String subtitle,
   }) async {
@@ -15,7 +14,6 @@ class FirebaseCrud {
         _Collection.doc();
 
     Map<String, dynamic> data = <String, dynamic>{
-      "done": done,
       "title": title,
       "subtitle": subtitle
     };
@@ -35,19 +33,17 @@ class FirebaseCrud {
   }
 
   static Future<Response> updateTask({
-    required bool done,
     required String title,
     required String subtitle,
     required String docId,
   })async {
     Response response = Response();
     DocumentReference documentReference =
-        _Collection.doc();
+        _Collection.doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
-      "done": done,
       "title": title,
-      "subtitle": subtitle
+      "subtitle": subtitle,
     };
 
     await documentReference

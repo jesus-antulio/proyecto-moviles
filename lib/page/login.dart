@@ -66,7 +66,7 @@ class _LoginPage extends State<LoginPage> {
                                 ),
                               ),
                           ),
-                          ElevatedButton(
+                          TextButton(
                             onPressed: () {
                               Navigator.pushAndRemoveUntil<dynamic>(
                                 context,
