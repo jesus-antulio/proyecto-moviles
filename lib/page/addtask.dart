@@ -3,6 +3,8 @@ import '../services/firebase_crud.dart';
 import 'package:flutter/material.dart';
 
 class AddTask extends StatefulWidget {
+  const AddTask({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _AddTask();
@@ -10,7 +12,6 @@ class AddTask extends StatefulWidget {
 }
 
 class _AddTask extends State<AddTask> {
-  final _done = false;
   final _title = TextEditingController();
   final _subtitle = TextEditingController();
 
@@ -67,7 +68,6 @@ class _AddTask extends State<AddTask> {
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
             var response = await FirebaseCrud.addTask(
-                done: _done,
                 title: _title.text,
                 subtitle: _subtitle.text);
             if (response.code != 200) {

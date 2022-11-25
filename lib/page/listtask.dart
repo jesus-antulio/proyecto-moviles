@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import '../services/firebase_crud.dart';
 
 class ListPage extends StatefulWidget {
+  const ListPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ListPage();
@@ -28,7 +30,7 @@ class _ListPage extends State<ListPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 40, 10, 15),
+              padding: const EdgeInsetsDirectional.fromSTEB(10, 40, 10, 15),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -42,18 +44,18 @@ class _ListPage extends State<ListPage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                              'Nombre de usuario',
-                              textAlign: TextAlign.start,
-                            ),
+                          'Nombre de usuario',
+                          textAlign: TextAlign.start,
+                        ),
                         Text(
-                              'Correo',
-                              textAlign: TextAlign.start,
-                            ),
+                          'Correo',
+                          textAlign: TextAlign.start,
+                        ),
                         IconButton(
                           onPressed: () {
                             Navigator.pushAndRemoveUntil<dynamic>(
@@ -61,11 +63,10 @@ class _ListPage extends State<ListPage> {
                               MaterialPageRoute<dynamic>(
                                 builder: (BuildContext context) => LoginPage(),
                               ),
-                              (route) =>
-                                false,
+                              (route) => false,
                             );
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.logout,
                             color: Colors.black,
                           ),
@@ -76,14 +77,14 @@ class _ListPage extends State<ListPage> {
                 ],
               ),
             ),
-            Divider(),
+            const Divider(),
           ],
         ),
       ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: true,
-        title: Text('List of Task'),
+        title: const Text('List of Task'),
         actions: <Widget>[
           IconButton(
             onPressed: () {
@@ -92,11 +93,10 @@ class _ListPage extends State<ListPage> {
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => AddTask(),
                 ),
-                (route) =>
-                    false,
+                (route) => false,
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.app_registration,
               color: Colors.white,
             ),
@@ -115,71 +115,70 @@ class _ListPage extends State<ListPage> {
                 children: snapshot.data!.docs.map((e) {
                   return Card(
                       child: Column(children: [
-                        ListTile(
-                          title: Text(e["title"]),
-                          subtitle: Container(
-                            child: (Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Checkbox(value: e['done'], onChanged: (bool) {} ),
-                                Text("Subtitle: " + e['subtitle'],
-                                    style: const TextStyle(fontSize: 14)),
-                              ],
-                            )),
-                          ),
-                        ),
-                        ButtonBar(
-                          alignment: MainAxisAlignment.spaceBetween,
+                    ListTile(
+                      title: Text(e["title"]),
+                      subtitle: Container(
+                        child: (Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                padding: const EdgeInsets.all(5.0),
-                                primary: const Color.fromARGB(255, 143, 133, 226),
-                                textStyle: const TextStyle(fontSize: 20),
-                              ),
-                              child: const Text('Edit'),
-                              onPressed: () {
-                               /* Navigator.pushAndRemoveUntil<dynamic>(
-                                  context,
-                                  MaterialPageRoute<dynamic>(
-                                    builder: (BuildContext context) => EditPage(
-                                      employee: Task(
-                                          uid: e.id,
-                                          title: e["title"],
-                                          subtitle: e["subtitle"]
-                                      ),
-                                    ),
-                                  ),
-                                  (route) =>
-                                    false, //if you want to disable back feature set to false
-                                );*/
-                              },
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                padding: const EdgeInsets.all(5.0),
-                                primary: const Color.fromARGB(255, 143, 133, 226),
-                                textStyle: const TextStyle(fontSize: 20),
-                              ),
-                              child: const Text('Delete'),
-                              onPressed: () async {
-                                var response =
-                                await FirebaseCrud.deleteTask(docId: e.id);
-                                if (response.code != 200) {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return AlertDialog(
-                                          content:
-                                          Text(response.message.toString()),
-                                        );
-                                      });
-                                }
-                              },
-                            ),
+                            Text("Subtitle: " + e['subtitle'],
+                                style: const TextStyle(fontSize: 14)),
                           ],
+                        )),
+                      ),
+                    ),
+                    //Checkbox(value: e['done'], onChanged: (bool) {} ),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(5.0),
+                            primary: const Color.fromARGB(255, 143, 133, 226),
+                            textStyle: const TextStyle(fontSize: 20),
+                          ),
+                          child: const Text('Edit'),
+                          onPressed: () {
+                            Navigator.pushAndRemoveUntil<dynamic>(
+                              context,
+                              MaterialPageRoute<dynamic>(
+                                builder: (BuildContext context) => EditPage(
+                                  task: Task(
+                                      uid: e.id,
+                                      title: e["title"],
+                                      subtitle: e["subtitle"]),
+                                ),
+                              ),
+                              (route) =>
+                                  false, //if you want to disable back feature set to false
+                            );
+                          },
                         ),
-                      ]));
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(5.0),
+                            primary: const Color.fromARGB(255, 143, 133, 226),
+                            textStyle: const TextStyle(fontSize: 20),
+                          ),
+                          child: const Text('Delete'),
+                          onPressed: () async {
+                            var response =
+                                await FirebaseCrud.deleteTask(docId: e.id);
+                            if (response.code != 200) {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      content:
+                                          Text(response.message.toString()),
+                                    );
+                                  });
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ]));
                 }).toList(),
               ),
             );
