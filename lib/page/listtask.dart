@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import '../services/firebase_crud.dart';
 
 class ListPage extends StatefulWidget {
+  const ListPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ListPage();
@@ -28,7 +30,7 @@ class _ListPage extends State<ListPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 40, 10, 15),
+              padding: const EdgeInsetsDirectional.fromSTEB(10, 40, 10, 15),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -42,16 +44,16 @@ class _ListPage extends State<ListPage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        SelectionArea(
+                        const SelectionArea(
                             child: Text(
                               'Nombre de usuario',
                               textAlign: TextAlign.start,
                             )),
-                        SelectionArea(
+                        const SelectionArea(
                             child: Text(
                               'Correo',
                               textAlign: TextAlign.start,
@@ -67,7 +69,7 @@ class _ListPage extends State<ListPage> {
                                 false,
                             );
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.logout,
                             color: Colors.black,
                           ),
@@ -78,14 +80,14 @@ class _ListPage extends State<ListPage> {
                 ],
               ),
             ),
-            Divider(),
+            const Divider(),
           ],
         ),
       ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: true,
-        title: Text('List of Task'),
+        title: const Text('List of Task'),
         actions: <Widget>[
           IconButton(
             onPressed: () {
@@ -98,7 +100,7 @@ class _ListPage extends State<ListPage> {
                     false,
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.app_registration,
               color: Colors.white,
             ),
@@ -123,13 +125,13 @@ class _ListPage extends State<ListPage> {
                             child: (Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Checkbox(value: e['done'], onChanged: (bool) {} ),
                                 Text("Subtitle: " + e['subtitle'],
                                     style: const TextStyle(fontSize: 14)),
                               ],
                             )),
                           ),
                         ),
+                        //Checkbox(value: e['done'], onChanged: (bool) {} ),
                         ButtonBar(
                           alignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -141,11 +143,11 @@ class _ListPage extends State<ListPage> {
                               ),
                               child: const Text('Edit'),
                               onPressed: () {
-                               /* Navigator.pushAndRemoveUntil<dynamic>(
+                               Navigator.pushAndRemoveUntil<dynamic>(
                                   context,
                                   MaterialPageRoute<dynamic>(
                                     builder: (BuildContext context) => EditPage(
-                                      employee: Task(
+                                      task: Task(
                                           uid: e.id,
                                           title: e["title"],
                                           subtitle: e["subtitle"]
@@ -154,7 +156,7 @@ class _ListPage extends State<ListPage> {
                                   ),
                                   (route) =>
                                     false, //if you want to disable back feature set to false
-                                );*/
+                                );
                               },
                             ),
                             TextButton(

@@ -407,7 +407,7 @@ class _RegisterPage extends State<RegisterPage> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                   child: Column(
                     children: [
-                      ElevatedButton(
+                      TextButton(
                         onPressed: () {
                           Navigator.pushAndRemoveUntil<dynamic>(
                             context,
