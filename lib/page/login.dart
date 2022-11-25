@@ -15,7 +15,11 @@ class _LoginPage extends State<LoginPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Align(
+          alignment: Alignment.center,
+          child: Text("Login",
+              textAlign: TextAlign.center),
+        ),
       ),
       body: ListView.builder(
           itemCount: 1,
@@ -31,29 +35,36 @@ class _LoginPage extends State<LoginPage> {
                         width: 100,
                       ),
                     ),
-                    Text("Login"),
+                    Text("Login",
+                      textAlign: TextAlign.center),
                     Container(
                       width: 400,
                       height: 200,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              icon: Icon(Icons.person),
-                              hintText: 'Username?',
-                              labelText: 'Enter your username',
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 16),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                icon: Icon(Icons.person),
+                                hintText: 'Username?',
+                                labelText: 'Enter your username',
+                              ),
                             ),
                           ),
-                          TextFormField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              icon: Icon(Icons.key),
-                              hintText: 'password?',
-                              labelText: 'Enter your password',
-                            ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 5),
+                              child: TextFormField(
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  icon: Icon(Icons.key),
+                                  hintText: 'password?',
+                                  labelText: 'Enter your password',
+                                ),
+                              ),
                           ),
                           TextButton(
                             onPressed: () {

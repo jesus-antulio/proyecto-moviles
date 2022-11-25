@@ -48,16 +48,14 @@ class _ListPage extends State<ListPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        const SelectionArea(
-                            child: Text(
-                              'Nombre de usuario',
-                              textAlign: TextAlign.start,
-                            )),
-                        const SelectionArea(
-                            child: Text(
-                              'Correo',
-                              textAlign: TextAlign.start,
-                            )),
+                        Text(
+                          'Nombre de usuario',
+                          textAlign: TextAlign.start,
+                        ),
+                        Text(
+                          'Correo',
+                          textAlign: TextAlign.start,
+                        ),
                         IconButton(
                           onPressed: () {
                             Navigator.pushAndRemoveUntil<dynamic>(
@@ -65,8 +63,7 @@ class _ListPage extends State<ListPage> {
                               MaterialPageRoute<dynamic>(
                                 builder: (BuildContext context) => LoginPage(),
                               ),
-                              (route) =>
-                                false,
+                              (route) => false,
                             );
                           },
                           icon: const Icon(
@@ -96,8 +93,7 @@ class _ListPage extends State<ListPage> {
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => AddTask(),
                 ),
-                (route) =>
-                    false,
+                (route) => false,
               );
             },
             icon: const Icon(
@@ -119,71 +115,70 @@ class _ListPage extends State<ListPage> {
                 children: snapshot.data!.docs.map((e) {
                   return Card(
                       child: Column(children: [
-                        ListTile(
-                          title: Text(e["title"]),
-                          subtitle: Container(
-                            child: (Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text("Subtitle: " + e['subtitle'],
-                                    style: const TextStyle(fontSize: 14)),
-                              ],
-                            )),
-                          ),
-                        ),
-                        //Checkbox(value: e['done'], onChanged: (bool) {} ),
-                        ButtonBar(
-                          alignment: MainAxisAlignment.spaceBetween,
+                    ListTile(
+                      title: Text(e["title"]),
+                      subtitle: Container(
+                        child: (Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                padding: const EdgeInsets.all(5.0),
-                                primary: const Color.fromARGB(255, 143, 133, 226),
-                                textStyle: const TextStyle(fontSize: 20),
-                              ),
-                              child: const Text('Edit'),
-                              onPressed: () {
-                               Navigator.pushAndRemoveUntil<dynamic>(
-                                  context,
-                                  MaterialPageRoute<dynamic>(
-                                    builder: (BuildContext context) => EditPage(
-                                      task: Task(
-                                          uid: e.id,
-                                          title: e["title"],
-                                          subtitle: e["subtitle"]
-                                      ),
-                                    ),
-                                  ),
-                                  (route) =>
-                                    false, //if you want to disable back feature set to false
-                                );
-                              },
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                padding: const EdgeInsets.all(5.0),
-                                primary: const Color.fromARGB(255, 143, 133, 226),
-                                textStyle: const TextStyle(fontSize: 20),
-                              ),
-                              child: const Text('Delete'),
-                              onPressed: () async {
-                                var response =
-                                await FirebaseCrud.deleteTask(docId: e.id);
-                                if (response.code != 200) {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return AlertDialog(
-                                          content:
-                                          Text(response.message.toString()),
-                                        );
-                                      });
-                                }
-                              },
-                            ),
+                            Text("Subtitle: " + e['subtitle'],
+                                style: const TextStyle(fontSize: 14)),
                           ],
+                        )),
+                      ),
+                    ),
+                    //Checkbox(value: e['done'], onChanged: (bool) {} ),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(5.0),
+                            primary: const Color.fromARGB(255, 143, 133, 226),
+                            textStyle: const TextStyle(fontSize: 20),
+                          ),
+                          child: const Text('Edit'),
+                          onPressed: () {
+                            Navigator.pushAndRemoveUntil<dynamic>(
+                              context,
+                              MaterialPageRoute<dynamic>(
+                                builder: (BuildContext context) => EditPage(
+                                  task: Task(
+                                      uid: e.id,
+                                      title: e["title"],
+                                      subtitle: e["subtitle"]),
+                                ),
+                              ),
+                              (route) =>
+                                  false, //if you want to disable back feature set to false
+                            );
+                          },
                         ),
-                      ]));
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(5.0),
+                            primary: const Color.fromARGB(255, 143, 133, 226),
+                            textStyle: const TextStyle(fontSize: 20),
+                          ),
+                          child: const Text('Delete'),
+                          onPressed: () async {
+                            var response =
+                                await FirebaseCrud.deleteTask(docId: e.id);
+                            if (response.code != 200) {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      content:
+                                          Text(response.message.toString()),
+                                    );
+                                  });
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ]));
                 }).toList(),
               ),
             );
