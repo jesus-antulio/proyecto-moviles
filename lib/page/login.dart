@@ -55,7 +55,7 @@ class _LoginPage extends State<LoginPage> {
                               labelText: 'Enter your password',
                             ),
                           ),
-                          ElevatedButton(
+                          TextButton(
                             onPressed: () {
                               Navigator.pushAndRemoveUntil<dynamic>(
                                 context,
