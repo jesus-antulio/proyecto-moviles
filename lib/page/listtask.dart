@@ -53,6 +53,10 @@ class _ListPage extends State<ListPage> {
                           textAlign: TextAlign.start,
                         ),
                         Text(
+                          'Nombre de usuario',
+                          textAlign: TextAlign.start,
+                        ),
+                        Text(
                           'Correo',
                           textAlign: TextAlign.start,
                         ),
