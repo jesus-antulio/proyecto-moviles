@@ -46,16 +46,14 @@ class _ListPage extends State<ListPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        SelectionArea(
-                            child: Text(
+                        Text(
                               'Nombre de usuario',
                               textAlign: TextAlign.start,
-                            )),
-                        SelectionArea(
-                            child: Text(
+                            ),
+                        Text(
                               'Correo',
                               textAlign: TextAlign.start,
-                            )),
+                            ),
                         IconButton(
                           onPressed: () {
                             Navigator.pushAndRemoveUntil<dynamic>(

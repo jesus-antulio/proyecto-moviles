@@ -38,75 +38,56 @@ class _RegisterPage extends State<RegisterPage> {
   String dropdownvalue = 'State';
   var items = [
     'State',
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinoi',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Monta',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dak',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvani',
-    'Rhode Island',
-    'South Caroli',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washingto',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
+    'Aguascalientes',
+    'Baja California',
+    'Baja California Sur',
+    'Campeche',
+    'Chiapas',
+    'Chihuahua',
+    'Ciudad de México',
+    'Coahuila',
+    'Colima',
+    'Durango',
+    'Estado de México',
+    'Guanajuato',
+    'Guerrero',
+    'Hidalgo',
+    'Jalisco',
+    'Michoacán',
+    'Morelos',
+    'Nayarit',
+    'Nuevo León',
+    'Oaxaca',
+    'Puebla',
+    'Querétaro',
+    'Quintana Roo',
+    'San Luis Potosí',
+    'Sinaloa',
+    'Sonora',
+    'Tabasco',
+    'Tamaulipas',
+    'Tlaxcala',
+    'Veracruz',
+    'Yucatán',
+    'Zacatecas',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Theme.of(context).primaryColorLight,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        title: SelectionArea(
-            child: Text(
+        title: Text(
               'Crear Perfil',
-            )),
+            ),
         actions: [],
         centerTitle: true,
         elevation: 4,
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
           child: Column(
@@ -115,290 +96,52 @@ class _RegisterPage extends State<RegisterPage> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
                 child: TextFormField(
-                  controller: yourNameController,
-                  obscureText: false,
                   decoration: InputDecoration(
-                    /*labelText: 'Your Name',
-                    labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF57636C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF57636C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),*/
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF1F4F8),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF1F4F8),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                    border: OutlineInputBorder(),
+                    labelText: 'Username',
+                    hintText: 'Ingresa tu Username',
                   ),
-                  /*style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Outfit',
-                    color: Color(0xFF101213),
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                  ),*/
-                  maxLines: null,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Correo electónico',
+                    hintText: 'Ingresa tu Correo',
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
                 child: TextFormField(
-                  controller: cityController,
-                  obscureText: false,
+                  obscureText: true,
                   decoration: InputDecoration(
-                    labelText: 'Your City',
-                    /*labelStyle: Theme.of(context).bodyText2.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF57636C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF57636C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),*/
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF1F4F8),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF1F4F8),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                    border: OutlineInputBorder(),
+                    labelText: 'Contraseña',
+                    hintText: 'Ingresa tu contraseña',
+
                   ),
-                  /*style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Outfit',
-                    color: Color(0xFF101213),
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                  ),*/
-                  maxLines: null,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
-                child:
-                DropdownButton(
-
-                  // Initial Value
+                padding: EdgeInsetsDirectional.fromSTEB(25, 0, 25, 16),
+                child: DropdownButton(
                   value: dropdownvalue,
-
-                  // Down Arrow Icon
                   icon: const Icon(Icons.keyboard_arrow_down),
-
-                  // Array list of items
+                  isExpanded: true,
                   items: items.map((String items) {
                     return DropdownMenuItem(
                       value: items,
                       child: Text(items),
                     );
                   }).toList(),
-                  // After selecting the desired option,it will
-                  // change button value to selected value
                   onChanged: (String? newValue) {
                     setState(() {
                       dropdownvalue = newValue!;
                     });
                   },
-                ),
-                /*DropdownButton<String>(
-                  initialOption: stateValue ??= 'State',
-                  items: [
-                    'State',
-                    'Alabama',
-                    'Alaska',
-                    'Arizona',
-                    'Arkansas',
-                    'California',
-                    'Colorado',
-                    'Connecticut',
-                    'Delaware',
-                    'Florida',
-                    'Georgia',
-                    'Hawaii',
-                    'Idaho',
-                    'Illinoi',
-                    'Indiana',
-                    'Iowa',
-                    'Kansas',
-                    'Kentucky',
-                    'Louisiana',
-                    'Maine',
-                    'Maryland',
-                    'Massachusetts',
-                    'Michigan',
-                    'Minnesota',
-                    'Mississippi',
-                    'Missouri',
-                    'Monta',
-                    'Nebraska',
-                    'Nevada',
-                    'New Hampshire',
-                    'New Jersey',
-                    'New Mexico',
-                    'New York',
-                    'North Carolina',
-                    'North Dak',
-                    'Ohio',
-                    'Oklahoma',
-                    'Oregon',
-                    'Pennsylvani',
-                    'Rhode Island',
-                    'South Caroli',
-                    'South Dakota',
-                    'Tennessee',
-                    'Texas',
-                    'Utah',
-                    'Vermont',
-                    'Virginia',
-                    'Washingto',
-                    'West Virginia',
-                    'Wisconsin',
-                    'Wyoming'
-                  ],
-                  onChanged: (val) => setState(() => stateValue = val),
-                  width: double.infinity,
-                  height: 56,
-                  textStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Outfit',
-                    color: Color(0xFF101213),
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                  ),
-                  hintText: 'Select State',
-                  icon: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: Color(0xFF57636C),
-                    size: 15,
-                  ),
-                  fillColor: Colors.white,
-                  elevation: 2,
-                  borderColor: Color(0xFFE0E3E7),
-                  borderWidth: 2,
-                  borderRadius: 8,
-                  margin: EdgeInsetsDirectional.fromSTEB(20, 4, 12, 4),
-                  hidesUnderline: true,
-                ),*/
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
-                child: TextFormField(
-                  controller: myBioController,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    /*labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF57636C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    hintText: 'Your bio',
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF57636C),
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),*/
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF1F4F8),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF1F4F8),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
-                  ),
-                  /*style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Outfit',
-                    color: Color(0xFF101213),
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                  ),*/
-                  textAlign: TextAlign.start,
-                  maxLines: 3,
                 ),
               ),
               Align(
